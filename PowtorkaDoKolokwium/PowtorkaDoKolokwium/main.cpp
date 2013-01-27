@@ -4,12 +4,21 @@ using namespace std;
 
 int main()
 {
-	float tab[7];
+	const int size=7;
+	float tab[size], tab1[size];
 	float *wsk=tab;
-	for(int i=0; i<sizeof(tab)/sizeof(float); i++)
-		*(wsk+i)=5+i;
+	
+	//wype³nianie tablicy tab
+	for(int i=0; i<size; i++)
+		*(wsk+i)=i;
+	
+	//kopiowanie do tab1
+	for(int i=0; i<size; i++)
+		tab1[i]=*(wsk+i);
 
-	for(int i=0; i<sizeof(tab)/sizeof(float); i++)
+	//printowanie tab1
+	wsk=tab1;
+	for(int i=0; i<size; i++)
 		cout<<*(wsk+i)<<" ";
 	cout<<endl;
 
