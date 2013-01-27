@@ -4,22 +4,20 @@ using namespace std;
 
 int main()
 {
-	int a, b, c;
-	a=1;
-	b=5;
-	c=8;
-	int *wsk;
+	int a=1;
+	int *w1, *w2, *w3, *w4;
 
-	wsk=&a;
-	*wsk+=1;
+	w1=&a;
+	w2=&a;
+	w3=&a;
+	w4=&a;
 
-	wsk=&b;
-	*wsk-=5;
+	// #2
 
-	wsk=&c;
-	*wsk/=2;
-
-	cout<<a<<b<<c<<endl;
+	w1=&a;
+	w2=w1;
+	w3=w2;
+	w4=w3;
 
 	return 0;
 }
