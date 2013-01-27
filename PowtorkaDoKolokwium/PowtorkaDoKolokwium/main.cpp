@@ -2,18 +2,22 @@
 
 using namespace std;
 
-int sum(int *tab, int length)
+int in_array(int *tab, int length, int needle)
 {
-	int sum=0;
 	for(int i=0; i<length; i++)
-		sum+=*(tab+i);
-	return sum;
+	{
+		if(*(tab+i)==needle)
+			return i;
+		else
+			continue;
+	}
+	return -1;
 }
 
 int main()
 {
 	int a[4]={1,2,3,4};
-	cout<<sum(a, 4)<<endl;
+	cout<<in_array(a, 4, 2)<<endl;
 
 	return 0;
 }
