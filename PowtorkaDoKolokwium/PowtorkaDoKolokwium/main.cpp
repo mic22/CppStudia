@@ -4,19 +4,33 @@ using namespace std;
 
 int main()
 {
-	char str[]="alibaba czupakabra allah akbar motherfucker";
-	char *wsk=str;
+	int tab1[3], tab2[3], tab3[3], a[9];
+	int *wsk=tab1;
+	int *wsk1=a;
 
-	int i=0;
-	int count=0;
-
-	do
+	int j=0;
+	for(int i=0; i<9; i++)
 	{
-		count = *(wsk+(i++))=='b' ? count+1 : count;
+		if(i==3)
+		{
+			wsk=tab2;
+			j=0;
+		}
+		else if(i==6)
+		{
+			wsk=tab3;
+			j=0;
+		}
+
+		*(wsk+j)=10*(i+1);
+
+		*(wsk1+j)=*(wsk+j);
+
+		cout<<*(wsk1+j)<<" ";
+
+		j++;
 	}
-	while(*(wsk+i)!='\0');
-	
-	cout<<count<<endl;
+	cout<<endl;
 
 	return 0;
 }
