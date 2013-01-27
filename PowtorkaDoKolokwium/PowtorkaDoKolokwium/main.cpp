@@ -2,22 +2,21 @@
 
 using namespace std;
 
-int in_array(int *tab, int length, int needle)
-{
-	for(int i=0; i<length; i++)
-	{
-		if(*(tab+i)==needle)
-			return i;
-		else
-			continue;
-	}
-	return -1;
-}
-
 int main()
 {
-	int a[4]={1,2,3,4};
-	cout<<in_array(a, 4, 2)<<endl;
+	char str[]="alibaba czupakabra allah akbar motherfucker";
+	char *wsk=str;
+
+	int i=0;
+	int count=0;
+
+	do
+	{
+		count = *(wsk+(i++))=='b' ? count+1 : count;
+	}
+	while(*(wsk+i)!='\0');
+	
+	cout<<count<<endl;
 
 	return 0;
 }
