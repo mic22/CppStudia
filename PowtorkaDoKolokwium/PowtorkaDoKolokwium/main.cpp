@@ -2,24 +2,33 @@
 
 using namespace std;
 
+void wypelnij(int *tab, bool typ=true)
+{
+	if(typ)
+	{
+		int *wsk=tab;
+		for(int i=0; i<10; i++)
+		{
+			*(wsk+i)=i-10;
+		}
+	}
+	else
+	{
+		int *wsk=&tab[9];
+		for(int i=9; i>=0; i--)
+		{
+			*(wsk+i)=i-10;
+		}
+	}
+}
+
 int main()
 {
-	const int size=7;
-	float tab[size], tab1[size];
-	float *wsk=tab;
-	
-	//wype³nianie tablicy tab
-	for(int i=0; i<size; i++)
-		*(wsk+i)=i;
-	
-	//kopiowanie do tab1
-	for(int i=0; i<size; i++)
-		tab1[i]=*(wsk+i);
-
-	//printowanie tab1
-	wsk=tab1;
-	for(int i=0; i<size; i++)
-		cout<<*(wsk+i)<<" ";
+	int a[10];
+	wypelnij(a);
+	wypelnij(a, false);
+	for(int i=0; i<10; i++)
+		cout<<a[i]<<" ";
 	cout<<endl;
 
 	return 0;
