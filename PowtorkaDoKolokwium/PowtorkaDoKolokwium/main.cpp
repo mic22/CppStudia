@@ -4,18 +4,14 @@ using namespace std;
 
 int main()
 {
-	int a=1;
-	int b;
-	int *w1, *w2, *w3, *w4, *w5;
-	
-	w1=&a;
-	w2=&a;
-	w3=w2;
-	w5=w3;
-	w4=w5;
-	b=*w4;
+	float tab[7];
+	float *wsk=tab;
+	for(int i=0; i<sizeof(tab)/sizeof(float); i++)
+		*(wsk+i)=5+i;
 
-	cout<<b<<endl;
+	for(int i=0; i<sizeof(tab)/sizeof(float); i++)
+		cout<<*(wsk+i)<<" ";
+	cout<<endl;
 
 	return 0;
 }
