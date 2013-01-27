@@ -6,7 +6,7 @@ int main()
 {
 	int zmienna=10;
 	int *wsk0=&zmienna;
-	int *wsk1=&zmienna;
+	int *wsk1=wsk0;
 
 	cout<<"adres zmiennej: "<<&zmienna<<endl;
 	cout<<"wskaznik 0 pokazuje na "<<wsk0<<endl;
