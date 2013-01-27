@@ -2,34 +2,18 @@
 
 using namespace std;
 
-void wypelnij(int *tab, bool typ=true)
+int sum(int *tab, int length)
 {
-	if(typ)
-	{
-		int *wsk=tab;
-		for(int i=0; i<10; i++)
-		{
-			*(wsk+i)=i-10;
-		}
-	}
-	else
-	{
-		int *wsk=&tab[9];
-		for(int i=9; i>=0; i--)
-		{
-			*(wsk+i)=i-10;
-		}
-	}
+	int sum=0;
+	for(int i=0; i<length; i++)
+		sum+=*(tab+i);
+	return sum;
 }
 
 int main()
 {
-	int a[10];
-	wypelnij(a);
-	wypelnij(a, false);
-	for(int i=0; i<10; i++)
-		cout<<a[i]<<" ";
-	cout<<endl;
+	int a[4]={1,2,3,4};
+	cout<<sum(a, 4)<<endl;
 
 	return 0;
 }
