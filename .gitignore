@@ -146,3 +146,12 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+#----Netbeans.gitignore----
+*/nbproject/private/
+*/build/
+*/nbbuild/
+*/dist/
+*/nbdist/
+*/nbactions.xml
+*/nb-configuration.xml
