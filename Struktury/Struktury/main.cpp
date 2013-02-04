@@ -28,11 +28,13 @@ struct Node
 	int inc(); //tworzy kolejne element listy i zwraca aktualny rozmia
         int del(const int); //usuwa elementy poczawszy od wskazanego indeksem do konca
         Node();
+        Node(bool);
 };
 
 int main()
 {
 	Node *zwierzatka=new Node; //inicjalizacja struktury
+        zwierzatka->max=0;
 	Zwierzatko *tmp; //wskaźnik pomocniczy
 
 	tmp=&zwierzatka->at()->data; //wskazanie na dane aktualnie ostatniego elementu
@@ -110,7 +112,7 @@ Node *Node::at(const int a)
 
 int Node::inc()
 {
-	this->at(this->max)->next=new Node;
+	this->at(this->max)->next=new Node(true);
 	return ++this->max;
 }
 
@@ -121,4 +123,13 @@ int Node::del(const int a)
         delete this->at(this->max);
 }
 
-Node::Node() { this->next=NULL; } //do czasu wykonania ::inc() pole ::next nie wskazuje następnika
+Node::Node() //do czasu wykonania ::inc() pole ::next nie wskazuje następnika
+{
+    this->max=0;
+    Node::Node(true);
+}
+
+Node::Node(bool callback)
+{
+    this->next=NULL;
+}
