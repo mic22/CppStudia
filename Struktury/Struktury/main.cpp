@@ -27,6 +27,7 @@ struct Node
 	unsigned int max; //przechwouje aktualny rozmiar struktury
 	int inc(); //tworzy kolejne element listy i zwraca aktualny rozmia
         int del(const int); //usuwa elementy poczawszy od wskazanego indeksem do konca
+        Node();
 };
 
 int main()
