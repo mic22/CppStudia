@@ -22,7 +22,7 @@ struct Node
 
 	//pola obs³ugi struktury danych 
 	Node *next;
-	Node *at(int); //odwolanie do elementu na konkretnej pozycji
+	Node *at(const int); //odwolanie do elementu na konkretnej pozycji
 	Node *at(); //odwolanie do ostatniego elementu
 	int static i; //przechwouje aktualny rozmiar struktury
 	int inc(); //tworzy kolejne element listy i zwraca aktualny rozmiar
@@ -56,7 +56,7 @@ int main()
 	for(int k=0; k<=Node::i; k++) //przejœcie po elementach struktury i wyswietlenie danych
 	{
 		tmp=&zwierzatka->at(k)->data;
-			cout<<k<<". "<<tmp->nazwa<<" (wiek: "<<tmp->wiek<<", plec: "<<(tmp->plec?"M":"F")<<")"<<endl;
+			cout<<k+1<<". "<<tmp->nazwa<<" (wiek: "<<tmp->wiek<<", plec: "<<(tmp->plec?"M":"F")<<")"<<endl;
 	}
 
 	return 0;
@@ -66,7 +66,7 @@ int Node::i=0;
 
 Node *Node::at() { return this->at(Node::i); }
 
-Node *Node::at(int a)
+Node *Node::at(const int a)
 {
 	Node *tmp=this;
 
@@ -88,4 +88,4 @@ int Node::inc()
 	return ++Node::i;
 }
 
-Node::Node() { this->next=nullptr; } //do czasu wykonania ::inc() pole ::next nie wskazuje nastêpnika 
+Node::Node() { this->next=nullptr; } //do czasu wykonania ::inc() pole ::next nie wskazuje nastêpnika
