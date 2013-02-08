@@ -37,6 +37,12 @@ int main()
         zwierzatka->max=0;
 	Zwierzatko *tmp; //wskaźnik pomocniczy
 
+        for (int i = 0; i < 2000000; i++) {
+            zwierzatka->inc();
+        }
+
+        zwierzatka->del(0);
+
 	tmp=&zwierzatka->at()->data; //wskazanie na dane aktualnie ostatniego elementu
 		tmp->nazwa="Pies"; //modyfikacja zawartosc
 		tmp->wiek=3;
