@@ -38,8 +38,12 @@ bool Bankomat::wyplac(double kwota)
 
 bool Bankomat::wplac(double kwota)
 {
-    this->stan+=kwota;
-    return true;
+    if(kwota>0)
+    {
+        this->stan+=kwota;
+         return true;
+    }
+    return false;
 }
 
 double Bankomat::getStan() const
