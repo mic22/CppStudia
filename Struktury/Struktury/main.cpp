@@ -4,8 +4,8 @@
 using namespace std;
 
 /*
- * zmodyfikowany program z wyk≥adu do obs≥ugi struktury danych
- * dla przyk≥adu przechowuje zwierzπtka :P
+ * zmodyfikowany program z wyk≈Çadu do obs≈Çugi struktury danych
+ * dla przyk≈Çadu przechowuje zwierzƒÖtka :P
  */
 
 struct Zwierzatko
@@ -20,20 +20,28 @@ struct Node
 	//pola danych
 	Zwierzatko data;
 
-	//pola obs≥ugi struktury danych
+	//pola obs≈Çugi struktury danych
 	Node *next;
 	Node *at(const int); //odwolanie do elementu na konkretnej pozycji
 	Node *at(); //odwolanie do ostatniego elementu
 	unsigned int max; //przechwouje aktualny rozmiar struktury
-	int inc(); //tworzy kolejne element listy i zwraca aktualny rozmiar
-	Node();
-    int del(const int); //usuwa elementy poczawszy od wskazanego indeksem do konca
+	int inc(); //tworzy kolejne element listy i zwraca aktualny rozmia
+        int del(const int); //usuwa elementy poczawszy od wskazanego indeksem do konca
+        Node();
+        Node(bool);
 };
 
 int main()
 {
 	Node *zwierzatka=new Node; //inicjalizacja struktury
-	Zwierzatko *tmp; //wskaünik pomocniczy
+        zwierzatka->max=0;
+	Zwierzatko *tmp; //wska≈∫nik pomocniczy
+
+        for (int i = 0; i < 2000000; i++) {
+            zwierzatka->inc();
+        }
+
+        zwierzatka->del(0);
 
 	tmp=&zwierzatka->at()->data; //wskazanie na dane aktualnie ostatniego elementu
 		tmp->nazwa="Pies"; //modyfikacja zawartosc
@@ -52,22 +60,36 @@ int main()
 		tmp->wiek=16;
 		tmp->plec=false;
 
-    bool b=true;
-    while(b)
-    {
-        zwierzatka->inc();
-        tmp=&zwierzatka->at()->data;
-        cout<<"Podaj nazwe (str), wiek (int), plec (bool):"<<endl;
-        cin>>tmp->nazwa>>tmp->wiek>>tmp->plec;
-        cout<<"Kontynuowac wprowadzanie? (bool): ";
-        cin>>b;
-    }
+        bool b=true;
+        while(b)
+        {
+            zwierzatka->inc();
+            tmp=&zwierzatka->at()->data;
+            cout<<"Podaj nazwe (str), wiek (int), plec (bool):"<<endl;
+            cin>>tmp->nazwa>>tmp->wiek>>tmp->plec;
+            cout<<"Kontynuowac wprowadzanie? (bool): ";
+            cin>>b;
+        }
 
 	zwierzatka->at(2)->data.nazwa="Walen"; //modyfikacja danych 3 elementu struktury
 
-    zwierzatka->del(2); //usuwanie (c, this->max)
-        
-	for(int k=0; k<=zwierzatka->max; k++) //przejúcie po elementach struktury i wyswietlenie danych
+        int c;
+        cout<<"usun: ";
+        cin>>c;
+        zwierzatka->del(c); //usuwanie (c, this->max)
+
+        b=true;
+        while(b)
+        {
+            zwierzatka->inc();
+            tmp=&zwierzatka->at()->data;
+            cout<<"Podaj nazwe (str), wiek (int), plec (bool):"<<endl;
+            cin>>tmp->nazwa>>tmp->wiek>>tmp->plec;
+            cout<<"Kontynuowac wprowadzanie? (bool): ";
+            cin>>b;
+        }
+
+	for(int k=0; k<=zwierzatka->max; k++) //przej≈õcie po elementach struktury i wyswietlenie danych
 	{
 		tmp=&zwierzatka->at(k)->data;
 			cout<<k+1<<". "<<tmp->nazwa<<" (wiek: "<<tmp->wiek<<", plec: "<<(tmp->plec?"M":"F")<<")"<<endl;
@@ -96,16 +118,24 @@ Node *Node::at(const int a)
 
 int Node::inc()
 {
-	this->at(this->max)->next=new Node;
+	this->at(this->max)->next=new Node(true);
 	return ++this->max;
 }
 
-Node::Node() { this->next=nullptr; } //do czasu wykonania ::inc() pole ::next nie wskazuje nastÍpnika
-
 int Node::del(const int a)
 {
-	delete this->at(this->max)->next;
+    delete this->at(this->max)->next;
     for(int i=this->max; i>a; i--, this->max--)
         delete this->at(this->max);
-	return this->max;
+}
+
+Node::Node() //do czasu wykonania ::inc() pole ::next nie wskazuje nastƒôpnika
+{
+    this->max=0;
+    Node::Node(true);
+}
+
+Node::Node(bool callback)
+{
+    this->next=NULL;
 }
