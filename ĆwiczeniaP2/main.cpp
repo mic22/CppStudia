@@ -22,6 +22,8 @@ int main()
     p4.display();
     
     cout<<p2.getY()<<endl;
+
+    cout<<"Odleglosc: "<<p1.distanceTo(p2);
     
     return 0;
 }

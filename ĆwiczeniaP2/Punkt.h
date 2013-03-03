@@ -16,6 +16,8 @@ public:
     double getX() const;
     double getY() const;
     void display() const;
+    void move(double, double);
+    double distanceTo(const Punkt&) const;
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "Punkt.h"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -31,4 +32,15 @@ double Punkt::getY() const { return y; }
 void Punkt::display() const
 {
     cout<<"("<< x <<", "<< y <<")"<<endl;
+}
+    
+void Punkt::move(double dx, double dy)
+{
+    setX(x+dx);
+    setY(x+dy);
+}
+
+double Punkt::distanceTo(const Punkt &punkt) const
+{
+    return sqrt(pow(punkt.getX()-x, 2)+pow(punkt.getY()-y ,2));
 }
