@@ -14,7 +14,7 @@ public:
     void setX(double);
     void setY(double);
     double getX() const;
-    double gextY() const;
+    double getY() const;
     void display() const;
 };
 
