@@ -22,7 +22,11 @@ int main()
     p4.display();
     
     cout<<p2.getY()<<endl;
-
+    
+    p2.setX(2);
+    p2.move(1, -1);
+    p1.display();
+    p2.display();
     cout<<"Odleglosc: "<<p1.distanceTo(p2);
     
     return 0;

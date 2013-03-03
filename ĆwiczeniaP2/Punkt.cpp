@@ -37,7 +37,7 @@ void Punkt::display() const
 void Punkt::move(double dx, double dy)
 {
     setX(x+dx);
-    setY(x+dy);
+    setY(y+dy);
 }
 
 double Punkt::distanceTo(const Punkt &punkt) const
