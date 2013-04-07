@@ -7,8 +7,9 @@ public:
     Matrix(const Matrix &orig);
     ~Matrix();
     bool insert(int, int, double);
+    bool insert(int, double *);
     void display();	
-    Matrix add(const Matrix &orig);
+    Matrix* add(Matrix *);
 private:
     void initialize(); 
     int rows;

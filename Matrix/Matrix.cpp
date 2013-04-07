@@ -34,6 +34,16 @@ bool Matrix::insert(int y, int x, double value)
     return false;
 }
 
+bool Matrix::insert(int y, double *values)
+{
+    if(this->cols-1>=y)
+    {
+		this->matrix[y]=values;
+		return true;
+    }
+    return false;
+}
+
 void Matrix::display()
 {
     for (int i=0; i<this->rows; i++)
@@ -42,9 +52,17 @@ void Matrix::display()
             cout<<this->matrix[i][j]<<"\t";
         cout<<endl;
     }
+    cout<<endl;
 }
 
-Matrix Matrix::add(const Matrix &orig)
+Matrix* Matrix::add(Matrix *orig)
 {
-    return Matrix(this->rows, this->cols);
+    Matrix *tmp= new Matrix(this->rows, this->cols);
+	
+    for(int i=0; i<this->rows; i++)
+    {
+		for(int j=0; j<this->cols; j++)
+			tmp->insert(i, j, this->matrix[i][j]+orig->matrix[i][j]);
+    }
+    return tmp;
 }
