@@ -14,6 +14,7 @@ public:
 		virtual ~Vector();
 		Vector & operator = (const Vector &);
 		Vector & operator = (double);
+		friend Vector operator + (const Vector &, const Vector &);
 		friend ostream & operator << (ostream &, const Vector &);
 private:
 		int n;

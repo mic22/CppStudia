@@ -5,12 +5,25 @@ using namespace std;
 
 ostream & operator << (ostream & out, const Vector & w)
 {
-		out<<"[";
+		out<<"[ ";
 		for(int i=0; i<w.n; i++)
-				out<<w.w[i];
+				out<<w.w[i]<<" ";
 		
 		out<<"]";
 		return out;
+}
+
+Vector operator + (const Vector & w1, const Vector & w2)
+{
+		Vector result=w1;
+		
+		if(w1.n==w2.n)
+		{
+				for(int i=0; i<w1.n; i++)
+						result.w[i]+=w2.w[i];
+		}
+				
+		return result;
 }
 
 Vector & Vector::operator = (const Vector & w)
@@ -25,7 +38,8 @@ Vector & Vector::operator = (const Vector & w)
 
 Vector & Vector::operator = (double n)
 {
-		
+		for(int i=0; i<this->n; i++)
+				this->w[i]=n;
 		return *this;
 }
 
