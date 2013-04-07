@@ -36,6 +36,25 @@ Vector & Vector::operator = (const Vector & w)
 		return *this;
 }
 
+double & Vector::operator [] (int index)
+{
+		if(index<=this->n)
+				return this->w[index];
+		else if(index>this->n)
+		{
+				int prev=this->n;
+				this->n=index+1;
+				for(int i=prev; i<this->n; i++)
+						this->w[i]=0;
+				
+				return this->w[index];
+		}
+		else
+		{
+				return this->w[0];//to od konca indeksator TODO
+		}
+}
+
 Vector & Vector::operator = (double n)
 {
 		for(int i=0; i<this->n; i++)
