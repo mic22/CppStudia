@@ -4,12 +4,12 @@
 class Pojazd {
 public:
 		Pojazd(int, int);
-		Pojazd(const Pojazd& orig);
 		virtual ~Pojazd();
 		virtual void move(int, int);
 		virtual void display() = 0;
-private:
+protected:
 		int x, y;
+		void gotoxy(int x, int y) { /*jakies przesuwanie kursora*/ }
 };
 
 #endif	/* POJAZD_H */

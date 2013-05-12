@@ -5,11 +5,15 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Pojazd.h</itemPath>
+      <itemPath>Rower.h</itemPath>
+      <itemPath>Samochod.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
       <itemPath>Pojazd.cpp</itemPath>
+      <itemPath>Rower.cpp</itemPath>
+      <itemPath>Samochod.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
